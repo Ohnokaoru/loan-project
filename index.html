@@ -5,38 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>貸款式算</title>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
-    <h1>貸款計算機</h1>
-    <form action="">
-        <label for="amount">貸款金額</label>
-        <input type="number" name="amount" id="amount" value="10">萬
-        <br>
-        <label for="amount">貸款年限</label>
-        <select name="years" id="years">
-            <option value="1">1</option>
-            <option value="3">3</option>
-            <option value="5">5</option>
-            <option value="7">7</option>
-            <option value="10" selected>10</option>
-            <option value="20">20</option>
-        </select>年
-        <br>
-        <label for="rate">貸款利率</label>
-        <input type="number" name="rate" id="rate" step="0.1" value="2">%
-        <br>
-        <input type="checkbox" name="fee" id="fee" checked>手續費(5000)
-        <br>
-        <label for="payment1">計算方式</label>
-        <input type="radio" name="repayment" id="payment1">本息攤還
-        <input type="radio" name="repayment" id="payment2" checked>本金攤還
-        <br>
-        <button type="button">計算</button>
-        <button type="button">清除</button>
+    <div id="container">
+        <h1>貸款計算機</h1>
+        <form action="">
+            <label for="amount">貸款金額</label>
+            <input type="number" name="amount" id="amount" value="10">萬
+            <br>
+            <label for="amount">貸款年限</label>
+            <select name="years" id="years">
+                <option value="1">1</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="7">7</option>
+                <option value="10" selected>10</option>
+                <option value="20">20</option>
+            </select>年
+            <br>
+            <label for="rate">貸款利率</label>
+            <input type="number" name="rate" id="rate" step="0.1" value="2">%
+            <br>
+            <input type="checkbox" name="fee" id="fee" checked>手續費(5000)
+            <br>
+            <label for="payment1">計算方式</label>
+            <input type="radio" name="repayment" id="payment1">本息攤還
+            <input type="radio" name="repayment" id="payment2" checked>本金攤還
+            <br>
+            <button type="button">計算</button>
+            <button type="button">清除</button>
 
-    </form>
-
+        </form>
+    </div>
 </body>
 
 </html>

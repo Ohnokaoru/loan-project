@@ -1,0 +1,15 @@
+#container {
+    text-align: center;
+}
+
+body {
+    background-color: rgb(111, 219, 183);
+}
+
+form {
+    width: 400px;
+    background-color: cornsilk;
+    margin: 0 auto;
+    padding: 16px;
+    border-radius: 20px;
+}
