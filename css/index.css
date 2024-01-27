@@ -43,3 +43,18 @@ input {
     font-size: 30px;
     color: aliceblue;
 }
+
+#result {
+    display: none;
+    width: 425px;
+    margin: 10px auto;
+    border-radius: 16px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(181, 203, 244);
+}
+
+button {
+    margin: 10px auto;
+
+}
