@@ -36,3 +36,12 @@ function calcloan() {
 
     //console.log(amount, years, rate, fee, payment1, totalInterest, totalAmount);
 }
+
+function reset() {
+    let reset_totalAmount = document.querySelector(".totalAmonut").innerText = ""
+    let reset_totalInterest = document.querySelector(".totalInterest").innerText = ""
+
+
+    console.log(reset_totalAmount, reset_totalInterest
+    );
+}
