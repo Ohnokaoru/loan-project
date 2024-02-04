@@ -9,7 +9,7 @@ body {
 form {
     width: 500px;
     background-color: rgb(244, 236, 203);
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 16px;
     border-radius: 20px;
     text-align: center;
@@ -64,6 +64,7 @@ table {
     margin: 0 auto;
     border: 1px solid;
     border-collapse: collapse;
+    padding: 10px;
 
 }
 

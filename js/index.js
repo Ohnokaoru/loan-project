@@ -6,8 +6,10 @@ const payment2El = document.querySelector("#payment2");
 const feeEl = document.querySelector("#fee");
 const calcEl = document.querySelector("#calc");
 const tableEl = document.querySelector("#table tbody");
+const resultEl = document.querySelector("#result");
 
-
+const resetEl = document.querySelector("#reset");
+const trEl = document.querySelector("#table tr")
 
 console.log(amountEl, yearsEl, rateEl, payment2El, payment1El, feeEl, calcEl, tableEl);
 
@@ -39,7 +41,7 @@ function calcloan() {
     document.querySelector(".totalInterest").innerText = totalInterest + "元";
     document.querySelector(".totalAmount").innerText = totalAmount + "元" + (fee == 0 ? "" : "(含手續費)");
 
-    const resultEl = document.querySelector("#result");
+
     resultEl.style.display = "none";
     setTimeout(function () {
         //將預設區塊為none，當初現值時會變成block(跳出)
@@ -94,5 +96,15 @@ function rule1(total_amount, years, rate) {
     }
     //console.log(datas);
     return [datas, totalInterest];
+
+}
+
+
+resetEl.addEventListener("click", reset);
+
+function reset() {
+    resultEl.style.display = "none";
+    tableEl.innerHTML = ""
+    trEl.innerHTML = ""
 
 }
