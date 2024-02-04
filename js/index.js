@@ -13,7 +13,7 @@ const trEl = document.querySelector("#table tr")
 
 console.log(amountEl, yearsEl, rateEl, payment2El, payment1El, feeEl, calcEl, tableEl);
 
-//監聽(元件,function)
+//元素.監聽("元件",function)
 calcEl.addEventListener("click", calcloan);
 
 function calcloan() {
@@ -28,14 +28,13 @@ function calcloan() {
         result = rule1(amount, years, rate);
         console.log(result);
     } else {
-        //result=rule2
-        alert("本息攤還製作中");
-        return;
+        result = rule2()
+
     }
 
     //總利息
     let totalInterest = result[1];
-    //總金額
+    //總支出金額
     let totalAmount = amount + totalInterest + fee;
     console.log(amount, years, rate, fee, rule, totalInterest, totalAmount);
     document.querySelector(".totalInterest").innerText = totalInterest + "元";
@@ -99,9 +98,12 @@ function rule1(total_amount, years, rate) {
 
 }
 
+function rule2() {
+
+    AmortizingLoan = { [(1 + month_rate) * period]* month_rate } / { [(1 + month_rate) * period] -1 }
+}
 
 resetEl.addEventListener("click", reset);
-
 function reset() {
     resultEl.style.display = "none";
     tableEl.innerHTML = ""
