@@ -28,7 +28,8 @@ function calcloan() {
         result = rule1(amount, years, rate);
         console.log(result);
     } else {
-        result = rule2()
+        result = rule2(amount, years, rate);
+        console.log(result);
 
     }
 
@@ -86,11 +87,12 @@ function rule1(total_amount, years, rate) {
         amount -= month_pay;
         // 最後一期
         if (i == period - 1) {
-            datas.push([i + 1, month_pay + amount, interest, month_pay + interest, 0]);
+            datas.push([i + 1, month_pay + amount, interest, month_pay + amount + interest, 0]);
         } else {
             // 0 - 59期
             datas.push([i + 1, month_pay, interest, month_pay + interest, amount]);
         }
+
         totalInterest += interest;
     }
     //console.log(datas);
@@ -98,15 +100,41 @@ function rule1(total_amount, years, rate) {
 
 }
 
-function rule2() {
+function rule2(total_amount, years, rate) {
+    let amount = total_amount;
+    let period = years * 12;
+    let month_rate = rate / 100 / 12;
+    let month_pay = parseInt(amount / period);
 
-    // 公式不會寫 AmortizingLoan = { [(1 + month_rate) * period] * month_rate } / { [(1 + month_rate) * period] -1 }
+    let CumulativeGrowthFactor = [(1 + month_rate) ** period] * month_rate
+    let CompoundInterestAccumulation = [(1 + month_rate) ** period] - 1
+    let AmortizingLoan = CumulativeGrowthFactor / CompoundInterestAccumulation
+
+    let datas = [];
+    let totalInterest = 0;
+    let totalpayment = Math.round(amount * AmortizingLoan);
+
+    for (i = 0; i < period; i++) {
+
+        let interest = Math.round(amount * month_rate);
+
+        // 最後一期
+        if (i == period - 1) {
+            datas.push([i + 1, totalpayment - interest, interest, totalpayment + amount - (totalpayment - interest), 0]);
+        } else {
+            // 0 - 59期
+            datas.push([i + 1, totalpayment - interest, interest, totalpayment, amount - (totalpayment - interest)]);
+        }
+
+
+        amount -= (totalpayment - interest);
+        totalInterest += interest;
+    }
+    return [datas, totalInterest];
 }
 
 resetEl.addEventListener("click", reset);
 function reset() {
     resultEl.style.display = "none";
     tableEl.innerHTML = ""
-    trEl.innerHTML = ""
-
 }
