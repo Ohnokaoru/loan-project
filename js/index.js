@@ -100,7 +100,7 @@ function rule1(total_amount, years, rate) {
 
 function rule2() {
 
-    AmortizingLoan = { [(1 + month_rate) * period]* month_rate } / { [(1 + month_rate) * period] -1 }
+    // 公式不會寫 AmortizingLoan = { [(1 + month_rate) * period] * month_rate } / { [(1 + month_rate) * period] -1 }
 }
 
 resetEl.addEventListener("click", reset);
